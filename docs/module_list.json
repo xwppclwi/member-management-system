@@ -1,0 +1,271 @@
+{
+  "project_name": "会员管理系统",
+  "total_modules": 8,
+  "modules": [
+    {
+      "id": "mod-1",
+      "name": "用户认证模块",
+      "description": "用户注册、登录、JWT认证、角色权限管理",
+      "type": "backend",
+      "priority": "P0",
+      "dependencies": [],
+      "dependents": ["mod-2", "mod-3", "mod-4", "mod-5"],
+      "status": "pending",
+      "github_issue": null,
+      "files": [
+        "Models/User.cs",
+        "DTOs/LoginRequest.cs",
+        "DTOs/RegisterRequest.cs",
+        "DTOs/UserDto.cs",
+        "Repositories/IUserRepository.cs",
+        "Repositories/UserRepository.cs",
+        "Services/IAuthService.cs",
+        "Services/AuthService.cs",
+        "Controllers/AuthController.cs",
+        "Common/JwtSettings.cs",
+        "Common/JwtService.cs"
+      ],
+      "apis": [
+        "POST /api/auth/login - 用户登录",
+        "POST /api/auth/register - 用户注册",
+        "POST /api/auth/logout - 用户登出",
+        "GET /api/auth/me - 获取当前用户",
+        "PUT /api/auth/password - 修改密码"
+      ],
+      "entities": ["User"],
+      "estimated_hours": 16
+    },
+    {
+      "id": "mod-2",
+      "name": "会员管理模块",
+      "description": "会员CRUD、等级管理、积分查询",
+      "type": "backend",
+      "priority": "P0",
+      "dependencies": ["mod-1"],
+      "dependents": ["mod-3", "mod-4", "mod-6", "mod-7", "mod-8"],
+      "status": "pending",
+      "github_issue": null,
+      "files": [
+        "Models/Member.cs",
+        "DTOs/MemberDto.cs",
+        "DTOs/CreateMemberRequest.cs",
+        "DTOs/UpdateMemberRequest.cs",
+        "DTOs/MemberQueryParams.cs",
+        "Repositories/IMemberRepository.cs",
+        "Repositories/MemberRepository.cs",
+        "Services/IMemberService.cs",
+        "Services/MemberService.cs",
+        "Controllers/MembersController.cs"
+      ],
+      "apis": [
+        "GET /api/members - 获取会员列表(分页)",
+        "GET /api/members/{id} - 获取会员详情",
+        "POST /api/members - 创建会员",
+        "PUT /api/members/{id} - 更新会员",
+        "DELETE /api/members/{id} - 删除会员",
+        "GET /api/members/search - 搜索会员",
+        "GET /api/members/{id}/points - 获取会员积分"
+      ],
+      "entities": ["Member"],
+      "estimated_hours": 24
+    },
+    {
+      "id": "mod-3",
+      "name": "会员卡管理模块",
+      "description": "会员卡开通、挂失、补卡、注销",
+      "type": "backend",
+      "priority": "P1",
+      "dependencies": ["mod-1", "mod-2"],
+      "dependents": ["mod-8"],
+      "status": "pending",
+      "github_issue": null,
+      "files": [
+        "Models/MemberCard.cs",
+        "DTOs/MemberCardDto.cs",
+        "DTOs/CreateCardRequest.cs",
+        "Repositories/IMemberCardRepository.cs",
+        "Repositories/MemberCardRepository.cs",
+        "Services/IMemberCardService.cs",
+        "Services/MemberCardService.cs",
+        "Controllers/MemberCardsController.cs"
+      ],
+      "apis": [
+        "GET /api/members/{id}/cards - 获取会员卡列表",
+        "POST /api/members/{id}/cards - 开通会员卡",
+        "PUT /api/cards/{cardId}/status - 更新卡状态(挂失/解挂/注销)",
+        "POST /api/cards/{cardId}/replace - 补办新卡"
+      ],
+      "entities": ["MemberCard"],
+      "estimated_hours": 16
+    },
+    {
+      "id": "mod-4",
+      "name": "积分系统模块",
+      "description": "积分增加、扣减、积分记录查询、积分规则",
+      "type": "backend",
+      "priority": "P1",
+      "dependencies": ["mod-1", "mod-2"],
+      "dependents": ["mod-8"],
+      "status": "pending",
+      "github_issue": null,
+      "files": [
+        "Models/PointsRecord.cs",
+        "Models/PointsRule.cs",
+        "DTOs/PointsRecordDto.cs",
+        "DTOs/AddPointsRequest.cs",
+        "DTOs/DeductPointsRequest.cs",
+        "Repositories/IPointsRepository.cs",
+        "Repositories/PointsRepository.cs",
+        "Services/IPointsService.cs",
+        "Services/PointsService.cs",
+        "Controllers/PointsController.cs"
+      ],
+      "apis": [
+        "GET /api/members/{id}/points-records - 获取积分记录",
+        "POST /api/members/{id}/points/add - 增加积分",
+        "POST /api/members/{id}/points/deduct - 扣减积分",
+        "GET /api/points-rules - 获取积分规则"
+      ],
+      "entities": ["PointsRecord", "PointsRule"],
+      "estimated_hours": 20
+    },
+    {
+      "id": "mod-5",
+      "name": "登录页面",
+      "description": "用户登录界面、JWT存储、路由守卫",
+      "type": "frontend",
+      "priority": "P0",
+      "dependencies": ["mod-1"],
+      "dependents": [],
+      "status": "pending",
+      "github_issue": null,
+      "files": [
+        "pages/Login/index.tsx",
+        "pages/Login/style.css",
+        "services/authService.ts",
+        "store/authStore.ts",
+        "hooks/useAuth.ts"
+      ],
+      "apis": [
+        "POST /api/auth/login"
+      ],
+      "estimated_hours": 8
+    },
+    {
+      "id": "mod-6",
+      "name": "会员列表页面",
+      "description": "会员列表展示、搜索筛选、分页、新增会员",
+      "type": "frontend",
+      "priority": "P0",
+      "dependencies": ["mod-2"],
+      "dependents": [],
+      "status": "pending",
+      "github_issue": null,
+      "files": [
+        "pages/MemberList/index.tsx",
+        "pages/MemberList/style.css",
+        "components/MemberTable/index.tsx",
+        "components/MemberSearch/index.tsx",
+        "components/MemberForm/index.tsx",
+        "services/memberService.ts",
+        "hooks/useMembers.ts"
+      ],
+      "apis": [
+        "GET /api/members",
+        "GET /api/members/search",
+        "POST /api/members",
+        "DELETE /api/members/{id}"
+      ],
+      "estimated_hours": 16
+    },
+    {
+      "id": "mod-7",
+      "name": "会员详情/编辑页面",
+      "description": "会员详情展示、编辑会员信息",
+      "type": "frontend",
+      "priority": "P1",
+      "dependencies": ["mod-2"],
+      "dependents": [],
+      "status": "pending",
+      "github_issue": null,
+      "files": [
+        "pages/MemberDetail/index.tsx",
+        "pages/MemberDetail/style.css",
+        "pages/MemberEdit/index.tsx",
+        "components/MemberInfo/index.tsx",
+        "components/MemberPoints/index.tsx"
+      ],
+      "apis": [
+        "GET /api/members/{id}",
+        "PUT /api/members/{id}",
+        "GET /api/members/{id}/points"
+      ],
+      "estimated_hours": 12
+    },
+    {
+      "id": "mod-8",
+      "name": "仪表盘页面",
+      "description": "数据统计概览、快捷入口、最近活动",
+      "type": "frontend",
+      "priority": "P1",
+      "dependencies": ["mod-2", "mod-3", "mod-4"],
+      "dependents": [],
+      "status": "pending",
+      "github_issue": null,
+      "files": [
+        "pages/Dashboard/index.tsx",
+        "pages/Dashboard/style.css",
+        "components/StatCard/index.tsx",
+        "components/RecentMembers/index.tsx",
+        "components/PointsChart/index.tsx"
+      ],
+      "apis": [
+        "GET /api/members",
+        "GET /api/points-records",
+        "GET /api/members/{id}/cards"
+      ],
+      "estimated_hours": 16
+    }
+  ],
+  "dependency_graph": {
+    "description": "模块依赖关系",
+    "levels": [
+      {
+        "level": 1,
+        "modules": ["mod-1"],
+        "description": "基础模块，无依赖"
+      },
+      {
+        "level": 2,
+        "modules": ["mod-2", "mod-5"],
+        "description": "依赖mod-1"
+      },
+      {
+        "level": 3,
+        "modules": ["mod-3", "mod-4", "mod-6", "mod-7"],
+        "description": "依赖mod-1和mod-2"
+      },
+      {
+        "level": 4,
+        "modules": ["mod-8"],
+        "description": "依赖mod-2, mod-3, mod-4"
+      }
+    ]
+  },
+  "development_phases": [
+    {
+      "phase": 1,
+      "name": "核心功能开发",
+      "modules": ["mod-1", "mod-2", "mod-5", "mod-6"],
+      "description": "用户认证、会员管理基础功能"
+    },
+    {
+      "phase": 2,
+      "name": "扩展功能开发",
+      "modules": ["mod-3", "mod-4", "mod-7", "mod-8"],
+      "description": "会员卡、积分系统、仪表盘"
+    }
+  ],
+  "created_at": "2026-03-17",
+  "updated_at": "2026-03-17"
+}
