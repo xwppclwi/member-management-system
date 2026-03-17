@@ -6,20 +6,86 @@
   "status": "developing",
   "created_at": "2026-03-17",
   "modules": [
-    {"id": "mod-1", "name": "用户认证模块", "type": "backend", "priority": "P0", "status": "completed", "github_issue": 1},
-    {"id": "mod-2", "name": "会员管理模块", "type": "backend", "priority": "P0", "status": "ready", "github_issue": 2},
-    {"id": "mod-3", "name": "会员卡管理模块", "type": "backend", "priority": "P1", "status": "pending", "github_issue": 3},
-    {"id": "mod-4", "name": "积分系统模块", "type": "backend", "priority": "P1", "status": "pending", "github_issue": 4},
-    {"id": "mod-5", "name": "登录页面", "type": "frontend", "priority": "P0", "status": "ready", "github_issue": 5},
-    {"id": "mod-6", "name": "会员列表页面", "type": "frontend", "priority": "P0", "status": "pending", "github_issue": 6},
-    {"id": "mod-7", "name": "会员详情/编辑页面", "type": "frontend", "priority": "P1", "status": "pending", "github_issue": 7},
-    {"id": "mod-8", "name": "仪表盘页面", "type": "frontend", "priority": "P1", "status": "pending", "github_issue": 8}
+    {
+      "id": "mod-1",
+      "name": "用户认证模块",
+      "type": "backend",
+      "priority": "P0",
+      "status": "completed",
+      "github_issue": 1,
+      "review_score": 8.5,
+      "review_issue": 9,
+      "completed_at": "2026-03-17"
+    },
+    {
+      "id": "mod-2",
+      "name": "会员管理模块",
+      "type": "backend",
+      "priority": "P0",
+      "status": "ready",
+      "github_issue": 2
+    },
+    {
+      "id": "mod-3",
+      "name": "会员卡管理模块",
+      "type": "backend",
+      "priority": "P1",
+      "status": "pending",
+      "github_issue": 3
+    },
+    {
+      "id": "mod-4",
+      "name": "积分系统模块",
+      "type": "backend",
+      "priority": "P1",
+      "status": "pending",
+      "github_issue": 4
+    },
+    {
+      "id": "mod-5",
+      "name": "登录页面",
+      "type": "frontend",
+      "priority": "P0",
+      "status": "ready",
+      "github_issue": 5
+    },
+    {
+      "id": "mod-6",
+      "name": "会员列表页面",
+      "type": "frontend",
+      "priority": "P0",
+      "status": "pending",
+      "github_issue": 6
+    },
+    {
+      "id": "mod-7",
+      "name": "会员详情/编辑页面",
+      "type": "frontend",
+      "priority": "P1",
+      "status": "pending",
+      "github_issue": 7
+    },
+    {
+      "id": "mod-8",
+      "name": "仪表盘页面",
+      "type": "frontend",
+      "priority": "P1",
+      "status": "pending",
+      "github_issue": 8
+    }
   ],
-  "completed_modules": ["mod-1"],
-  "current_module": "mod-1",
+  "completed_modules": [
+    "mod-1",
+    "mod-1"
+  ],
+  "current_module": null,
   "total_modules": 8,
   "progress_percent": 12.5,
   "prd_path": "docs/PRD.md",
   "module_list_path": "docs/module_list.json",
-  "last_updated": "2026-03-17"
+  "last_updated": "2026-03-17",
+  "ready_modules": [
+    "mod-2",
+    "mod-5"
+  ]
 }
