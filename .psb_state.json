@@ -3,10 +3,10 @@
   "display_name": "会员管理系统",
   "github_repo": "https://github.com/xwppclwi/member-management-system",
   "local_path": "/Users/luchen/psb-framework/projects/member-management-system",
-  "status": "planning_completed",
+  "status": "developing",
   "created_at": "2026-03-17",
   "modules": [
-    {"id": "mod-1", "name": "用户认证模块", "type": "backend", "priority": "P0", "status": "pending", "github_issue": 1},
+    {"id": "mod-1", "name": "用户认证模块", "type": "backend", "priority": "P0", "status": "in_progress", "github_issue": 1},
     {"id": "mod-2", "name": "会员管理模块", "type": "backend", "priority": "P0", "status": "pending", "github_issue": 2},
     {"id": "mod-3", "name": "会员卡管理模块", "type": "backend", "priority": "P1", "status": "pending", "github_issue": 3},
     {"id": "mod-4", "name": "积分系统模块", "type": "backend", "priority": "P1", "status": "pending", "github_issue": 4},
@@ -16,7 +16,7 @@
     {"id": "mod-8", "name": "仪表盘页面", "type": "frontend", "priority": "P1", "status": "pending", "github_issue": 8}
   ],
   "completed_modules": [],
-  "current_module": null,
+  "current_module": "mod-1",
   "total_modules": 8,
   "progress_percent": 0,
   "prd_path": "docs/PRD.md",
