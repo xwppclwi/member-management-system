@@ -22,6 +22,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // 添加依赖注入
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IMemberRepository, MemberRepository>();
+builder.Services.AddScoped<IMemberService, MemberService>();
 
 // 添加JWT认证
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

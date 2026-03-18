@@ -22,8 +22,9 @@
       "name": "会员管理模块",
       "type": "backend",
       "priority": "P0",
-      "status": "ready",
-      "github_issue": 2
+      "status": "developing",
+      "github_issue": 2,
+      "started_at": "2026-03-18T14:20:29.162325"
     },
     {
       "id": "mod-3",
@@ -46,8 +47,9 @@
       "name": "登录页面",
       "type": "frontend",
       "priority": "P0",
-      "status": "ready",
-      "github_issue": 5
+      "status": "developing",
+      "github_issue": 5,
+      "started_at": "2026-03-18T14:20:29.162347"
     },
     {
       "id": "mod-6",
@@ -78,12 +80,12 @@
     "mod-1",
     "mod-1"
   ],
-  "current_module": null,
+  "current_module": "mod-2,mod-5",
   "total_modules": 8,
   "progress_percent": 12.5,
   "prd_path": "docs/PRD.md",
   "module_list_path": "docs/module_list.json",
-  "last_updated": "2026-03-17",
+  "last_updated": "2026-03-18T14:20:29.162349",
   "ready_modules": [
     "mod-2",
     "mod-5"
